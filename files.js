@@ -21,7 +21,7 @@ fs.writeFile('blog2.txt', 'Blog 2 has been created!', () => {
 })
 
 //directiories
-
+jj
 fs.mkdir('assets', (err) => {
     if (err) {
         console.log(err);
