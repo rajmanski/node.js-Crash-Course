@@ -5,7 +5,12 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get('/', (req,res) => {
-    res.render('index');
+    const blogs = [
+        {title: 'Blog 1', snippet: 'lorem20 02 0202202020202020'},
+        {title: 'Blog 2', snippet: 'lorem20 02 asdasdasdas'},
+        {title: 'Blog 3', snippet: 'lorem20 02 0202++++++++546545+----20202+0202020'},
+    ];
+    res.render('index', { title: 'Home', blogs, });
 })
 
 app.get('/about', (req,res) => {
