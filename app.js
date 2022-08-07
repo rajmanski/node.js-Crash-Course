@@ -2,16 +2,23 @@ const express = require('express');
 
 const app = express();
 
+app.set('view engine', 'ejs');
+
 app.get('/', (req,res) => {
-    res.send('<h1>Lalalala</h1>')
+    res.render('index');
 })
 
 app.get('/about', (req,res) => {
-    res.sendFile('/views/about.html', { root: __dirname});
+    res.render('about');
 })
 
+app.get('/blogs/create', (req,res) => {
+    res.render('about');
+})
 
 app.use((req, res) => {
-    res.sendFile('/views/404.html', {root: __dirname});
+    res.render('create');
 })
+
+
 app.listen(3000);
