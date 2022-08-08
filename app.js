@@ -1,8 +1,13 @@
 const express = require('express');
+const morgan = require('morgan');
 
 const app = express();
 
 app.set('view engine', 'ejs');
+
+app.use(morgan('dev'));
+
+app.use(express.static('public'));
 
 app.get('/', (req,res) => {
     const blogs = [
@@ -18,11 +23,11 @@ app.get('/about', (req,res) => {
 })
 
 app.get('/blogs/create', (req,res) => {
-    res.render('about');
+    res.render('creat');
 })
 
 app.use((req, res) => {
-    res.render('create');
+    res.status(404).redirect('404');
 })
 
 
