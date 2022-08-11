@@ -9,6 +9,8 @@ app.use(morgan('dev'));
 
 app.use(express.static('public'));
 
+app.use(express.urlencoded());
+
 app.get('/', (req,res) => {
     const blogs = [
         {title: 'Blog 1', snippet: 'lorem20 02 0202202020202020'},
@@ -24,6 +26,12 @@ app.get('/about', (req,res) => {
 
 app.get('/blogs/create', (req,res) => {
     res.render('creat');
+})
+
+app.post('/blogs', (req, res) => {
+    const blog = new Blog(req.body);
+
+    blog.save();
 })
 
 app.use((req, res) => {
